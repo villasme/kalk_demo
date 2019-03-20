@@ -7,11 +7,15 @@ Vue.config.productionTip = false
 
 import { 
   Tabbar, 
-  TabbarItem 
+  TabbarItem,
+  Search,
+  Panel
 } from 'vant';
 import 'vant/lib/index.css';
 
 Vue.use(Tabbar).use(TabbarItem);
+Vue.use(Search)
+Vue.use(Panel)
 
 new Vue({
   router,
