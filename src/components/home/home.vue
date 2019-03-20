@@ -2,7 +2,7 @@
   <div class="home">
       <kl-home-panel>
           <div slot="content">
-              这是内容啊
+              <goods-item-vertical></goods-item-vertical>
           </div>
       </kl-home-panel>
   </div>
@@ -10,10 +10,12 @@
 
 <script>
 import KlHomePanel from '../common/kl-home-panel'
+import GoodsItemVertical from './goods-item_vertical'
 
 export default {
   components: {
-    KlHomePanel
+    KlHomePanel,
+    GoodsItemVertical
   },
   data () {
     return {
