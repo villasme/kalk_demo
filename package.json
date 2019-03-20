@@ -18,7 +18,12 @@
     "@vue/cli-service": "^3.5.1",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.8.0",
-    "eslint-plugin-vue": "^5.0.0",
+    "eslint-plugin-vue": "^5.2.2",
+    "postcss-calc": "^7.0.1",
+    "postcss-import": "^12.0.1",
+    "postcss-px-to-viewport": "^1.1.0",
+    "postcss-scss": "^2.0.0",
+    "precss": "^4.0.0",
     "vue-template-compiler": "^2.5.21"
   },
   "eslintConfig": {
@@ -36,8 +41,16 @@
     }
   },
   "postcss": {
+    "parser": "postcss-scss",
     "plugins": {
-      "autoprefixer": {}
+      "autoprefixer": {},
+      "postcss-import": {},
+      "precss": {},
+      "postcss-calc": {},
+      "postcss-px-to-viewport": {
+        "viewportWidth": 750,
+        "selectorBlackList": ["van"]
+      }
     }
   },
   "browserslist": [

@@ -11,6 +11,10 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-@import url('./assets/css/reset.css');
+<style lang="postcss">
+@import './assets/css/reset.css';
+
+#app {
+  font-size: 32px;
+}
 </style>
