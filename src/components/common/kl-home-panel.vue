@@ -1,15 +1,11 @@
 <template>
   <div class="kl-home-panel">
-    <van-panel title="标题" desc="描述信息" status="状态" class="home-panel">
+    <van-panel class="home-panel">
         <div slot="header" class="kl-home-panel-header">
-            <span>畅销品种</span>
-            <router-link to="">>>更多畅销</router-link>
+            <span>{{title}}</span>
+            <router-link class="kl-home-pannel-header-link" :to="to">{{status}}</router-link>
         </div>
-        <div>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
-            内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
-            内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
-            内容内容内容内容内容内容内容内容内容内容内容内容内容内容
-        </div>
+        <slot name="content"></slot>
     </van-panel>
   </div>
 </template>
@@ -17,8 +13,19 @@
 <script>
 
 export default {
-  components: {
-
+  props: {
+      title: {
+        type: String,
+        default: '标题'
+      },
+      status: {
+        type: String,
+        default: '状态'
+      },
+      to: {
+        type: [String, Object],
+        default: ''
+      }
   },
   data () {
     return {
@@ -29,12 +36,21 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
+@import '../../assets/css/constant.scss';
+
 .kl-home-panel {
-    padding: 0 20px;
+    padding: 0 30px;
 }
 
 .kl-home-panel-header {
+    padding: 20px 0;
     display: flex;
     justify-content: space-between;
+    border-bottom: 1Px solid #e4e4e4;
+    color: $color-orange;
+}
+
+.kl-home-pannel-header-link {
+    color: $color-orange;
 }
 </style>

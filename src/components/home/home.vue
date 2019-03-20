@@ -1,6 +1,10 @@
 <template>
   <div class="home">
-      <kl-home-panel></kl-home-panel>
+      <kl-home-panel>
+          <div slot="content">
+              这是内容啊
+          </div>
+      </kl-home-panel>
   </div>
 </template>
 
