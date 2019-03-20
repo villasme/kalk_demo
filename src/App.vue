@@ -11,5 +11,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import url('./assets/css/reset.css');
 </style>
