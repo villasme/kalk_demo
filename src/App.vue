@@ -18,8 +18,10 @@ export default {
 
 <style lang="postcss">
 @import './assets/css/reset.css';
+@import './assets/css/constant.scss';
 
 #app {
-  font-size: 32px;
+  font-size: $size-normal;
+  color: $color-normal;
 }
 </style>

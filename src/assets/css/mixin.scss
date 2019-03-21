@@ -1,0 +1,29 @@
+@import './constant.scss';
+
+/****** 三角形 ********/
+@mixin triangle-base ($sideSize) {
+    width: 0;
+    height: 0;
+    border: $sideSize solid transparent;
+}
+
+@mixin triangle-right ($width: 20px, $height: 20px, $color: $color-orange) {
+    @include triangle-base($sideSize: $height);
+    border-right: $width solid $color;
+}
+
+@mixin triangle-left ($width: 20px, $height: 20px, $color: $color-orange) {
+    @include triangle-base($sideSize: $height);
+    border-left: $width solid $color;
+}
+
+@mixin triangle-bottom ($width: 20px, $height: 20px, $color: $color-orange) {
+    @include triangle-base($sideSize: $width);
+    border-bottom: $height solid $color;
+}
+
+@mixin triangle-top ($width: 20px, $height: 20px, $color: $color-orange) {
+    @include triangle-base($sideSize: $with);
+    border-top: $height solid $color;
+}
+/****** 三角形 ********/
