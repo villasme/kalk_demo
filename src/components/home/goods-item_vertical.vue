@@ -50,11 +50,12 @@ export default {
             color: $color-white;
 
             &::after {
+                content: "";
                 position: absolute;
                 left: 50%;
-                bottom: 0;
+                bottom: -75px;
                 transform: translateX(-50%);
-                @include triangle-bottom();
+                @include triangle-top(60px);
             }
         }
 

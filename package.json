@@ -45,11 +45,13 @@
     "plugins": {
       "autoprefixer": {},
       "postcss-import": {},
-      "precss": {},
       "postcss-calc": {},
+      "precss": {},
       "postcss-px-to-viewport": {
         "viewportWidth": 750,
-        "selectorBlackList": ["van"]
+        "selectorBlackList": [
+          "van"
+        ]
       }
     }
   },
