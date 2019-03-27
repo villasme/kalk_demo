@@ -1,6 +1,6 @@
 <template>
   <div class="goods-item_vertical">
-      <dl class="goods-item_vertical-dl">
+      <dl class="goods-item_vertical-dl" @click="onClick">
           <dt>
               <em>较均价低6%</em>
               <img src="/logo.png" alt="这是图片">
@@ -18,9 +18,18 @@
 <script>
 
 export default {
+  props: ['data'],
   components: {},
   data () {
     return {}
+  },
+  mounted () {
+    //   alert(this.data)
+  },
+  methods: {
+      onClick () {
+          this.$router.push(`/recommendinfo/${this.data}`)
+      }
   }
 }
 </script>

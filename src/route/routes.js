@@ -5,6 +5,7 @@ const routes = [
     { path: '/search', component: () => import('../components/search') },
     { path: '/income', component: () => import('../components/income') },
     { path: '/personal', component: () => import('../components/personal') },
+    { path: '/recommendinfo/:id', component: () => import('../components/home/recommend-info.vue') },
 ]
 
 export default routes

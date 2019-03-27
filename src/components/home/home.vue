@@ -14,7 +14,7 @@
           <div slot="content">
             <br>
             <van-row>
-              <van-col v-for="n in 3" :key="n"  span="24"><goods-item-horizontal></goods-item-horizontal></van-col>
+              <van-col v-for="n in 3" :key="n"  span="24"><goods-item-horizontal :data="n"></goods-item-horizontal></van-col>
             </van-row>
           </div>
       </kl-home-panel>

@@ -1,3 +1,4 @@
+<!-- 更多推荐页面 -->
 <template>
   <div class="goods-recommend">
       <van-list
@@ -7,8 +8,9 @@
         finished-text="没有更多了"
         @load="onLoad"
         >
-        <goods-item-horizontal v-for="item in list" :key="item"></goods-item-horizontal>
+          <goods-item-horizontal v-for="item in list" :key="item" :data="item"></goods-item-horizontal>
       </van-list>
+
   </div>
 </template>
 

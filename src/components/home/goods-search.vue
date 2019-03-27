@@ -2,7 +2,7 @@
   <div class="goods-search">
       <!--搜索 -->
     &nbsp;
-    <van-icon size="20px" name="arrow-left"/>
+    <van-icon @click="onExit" size="20px" name="arrow-left"/>
     <van-search
     style="flex-grow: 1"
     slot="title"
@@ -12,7 +12,7 @@
     shape="round"
     @search="onSearch"
     >
-    <div slot="action" @click="onSearch">取消</div>
+    <div slot="action" @click="onExit">取消</div>
     </van-search>
     <span></span>
   </div>
@@ -21,16 +21,19 @@
 <script>
 
 export default {
-  props: ['value', 'isUpSearch'],
+  props: ['isUpSearch'],
   components: {},
   data () {
     return {
-
+      value: ''
     }
   },
   methods: {
       onSearch () {
         this.$emit('onSearch')
+      },
+      onExit () {
+        this.$emit('onExit')
       }
   }
 }

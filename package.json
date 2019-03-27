@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "echarts": "^4.2.1",
     "vant": "^1.6.10",
     "vue": "^2.6.6",
     "vue-awesome-swiper": "^3.1.3",

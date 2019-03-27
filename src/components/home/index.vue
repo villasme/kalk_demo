@@ -1,17 +1,17 @@
 <template>
   <div class="home-index">
     <!-- 找药的搜索框 -->
-    <van-search @click="onSearch" placeholder="批准文号、商品名、首字母" v-model="value" />
+    <van-search @click="tagSearch" placeholder="批准文号、商品名、首字母" v-model="value" />
     <!-- 所有要的种类 -->
     <lk-home></lk-home>
 
-    <!-- 搜索页 -->
+    <!-- 搜索页 应该提出来 -->
     <van-popup class="popup-search" v-model="isUpSearch"  position="right" :overlay="false">
       <!-- 搜索框 -->
       <goods-search 
         :isUpSearch="isUpSearch" 
+        v-on:onExit="onExit"
         v-on:onSearch="onSearch"
-        :value="value"
       ></goods-search>
       <br>
 
@@ -49,6 +49,10 @@
         <van-button type="default" size="large">清除搜索历史</van-button>
       </div>
     </van-popup>
+    <!-- 搜索页 结束-->
+
+    <!-- bottom-tabbar -->
+    <kl-tabbar></kl-tabbar>
   </div>
 </template>
 
@@ -56,12 +60,13 @@
 import LkHome from './home'
 import GoodsSearch from './goods-search'
 import KlNavSwiper from '../common/kl-nav-swiper'
+import KlTabbar from '../common/kl-tabbar'
 
 export default {
   data () {
     return {
       value: '',
-      isUpSearch: true,
+      isUpSearch: false,
       swiperOption: {
         slidesPerView : 4.7,
         spaceBetween: 30,
@@ -82,10 +87,19 @@ export default {
   components: {
     LkHome,
     GoodsSearch,
-    KlNavSwiper
+    KlNavSwiper,
+    KlTabbar
   },
   methods: {
-    onSearch () {},
+    tagSearch () {
+      this.isUpSearch = true
+    },
+    onExit () {
+      this.isUpSearch = false
+    },
+    onSearch () {
+      alert('开始进行搜索')
+    },
     onNavClick (data) {
       alert(data);
     },
