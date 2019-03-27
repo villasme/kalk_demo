@@ -1,14 +1,15 @@
 <template>
   <div class="search">
-      search
+      <home></home>
   </div>
 </template>
 
 <script>
+import Home from '../home'
 
 export default {
   components: {
-
+    Home
   },
   data () {
     return {

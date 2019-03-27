@@ -1,6 +1,6 @@
 const routes = [
     { path: '', redirect: '/home' },
-    { path: '/home', component: () => import('../components/home') },
+    { path: '/home', component: () => import('../components/home')},
     { path: '/order', component: () => import('../components/order') },
     { path: '/search', component: () => import('../components/search') },
     { path: '/income', component: () => import('../components/income') },

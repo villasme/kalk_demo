@@ -3,7 +3,7 @@
     <van-panel class="home-panel">
         <div slot="header" class="kl-home-panel-header">
             <span>{{title}}</span>
-            <router-link class="kl-home-pannel-header-link" :to="to">{{status}}</router-link>
+            <span class="kl-home-pannel-header-link" @click="clickLink" :to="to">{{status}}</span>
         </div>
         <slot name="content"></slot>
     </van-panel>
@@ -29,6 +29,11 @@ export default {
   data () {
     return {
 
+    }
+  },
+  methods: {
+    clickLink () {
+      this.$emit('onClickLink')
     }
   }
 }
