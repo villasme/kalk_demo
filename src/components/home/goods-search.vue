@@ -21,7 +21,6 @@
 <script>
 
 export default {
-  props: ['isUpSearch'],
   components: {},
   data () {
     return {

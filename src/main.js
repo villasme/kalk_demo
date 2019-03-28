@@ -46,7 +46,7 @@ Vue.use(Card);
 Vue.use(Tab).use(Tabs);
 
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
-Vue.prototype.$echarts = echarts 
+Vue.prototype.$echarts = echarts
 
 new Vue({
   router,
