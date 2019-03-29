@@ -26,17 +26,12 @@
           <p>价格</p>
           <p>库存</p>
           <p>销量</p>
-          <p @click="isUpCity=true" style="color:red">筛选<van-icon name="filter-o" /></p>
+          <p><router-link style="color:red" to="/city">筛选</router-link><van-icon name="filter-o" /></p>
         </dd>
       </dl>
       <div>
         <van-col v-for="n in 3" :key="n"  span="24"><goods-item-horizontal :data="n"></goods-item-horizontal></van-col>
       </div>
-
-      <!-- 筛选的框框 -->
-      <van-popup class="up-city" v-model="isUpCity" position="right" :overlay="false">
-        
-      </van-popup>
   </div>
 </template>
 
@@ -44,11 +39,10 @@
 import LkPriceIndex from './price-index'
 import GoodsItemHorizontal from './goods-item_horizontal'
 
-
 export default {
   components: {
     LkPriceIndex,
-    GoodsItemHorizontal
+    GoodsItemHorizontal,
   },
   data () {
     return {

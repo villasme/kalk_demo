@@ -3,7 +3,7 @@
         <div class="city-search">
             <!--搜索 -->
           &nbsp;
-          <van-icon @click="isUpCity=false" size="20px" name="arrow-left"/>
+          <van-icon @click="$router.go(-1)" size="20px" name="arrow-left"/>
           <van-search
           style="flex-grow: 1"
           slot="title"
@@ -62,7 +62,7 @@ export default {
     init () {
         eventBus.$on('onChangeIndex', (index) => {
             this.clearCurr()
-            this.$refs[index][0].className += " curr"
+            this.$refs[index] && (this.$refs[index][0].className += " curr")
         })
     },
     onSearch () {
@@ -70,12 +70,12 @@ export default {
     },
     handleIndex (index) {
         this.clearCurr()
-        this.$refs[index][0].className += " curr"
+        this.$refs[index] && (this.$refs[index][0].className += " curr")
         eventBus.$emit('klCityScrollToEle', this.cityData[index].initial)
     },
     clearCurr () {
         this.cityData.forEach((item, index) => {
-            this.$refs[index][0].className = 'list-index-item'
+            this.$refs[index] && (this.$refs[index][0].className = 'list-index-item')
         })
     }
   },
