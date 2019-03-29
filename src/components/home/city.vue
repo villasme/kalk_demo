@@ -19,6 +19,7 @@
         </div>
         <kl-city></kl-city>
         <!-- 这里使用数据驱动的时候 无法触发 view Change  所以使用的 DOM操作 -->
+        <!-- :class="{'curr': currIndex === index}" 不生效原因 是因为不能使用全等  -->
         <div class="list-shortcut">
           <ul ref="index">
             <li v-for="(item, index) in cityData"
@@ -26,7 +27,7 @@
             :data-index="index"
             :key="index"
             @click="handleIndex(index)"
-            :ref="index"
+            :class="{'curr': currIndex == index}"
             >
             {{ item.initial }}
             </li>
@@ -52,7 +53,8 @@ export default {
       value: '',
 
       // 城市
-      cityData
+      cityData,
+      currIndex: 0,
     }
   },
   mounted () {
@@ -61,16 +63,14 @@ export default {
   methods: {
     init () {
         eventBus.$on('onChangeIndex', (index) => {
-            this.clearCurr()
-            this.$refs[index] && (this.$refs[index][0].className += " curr")
+            this.currIndex = index
         })
     },
     onSearch () {
       eventBus.$emit('klCityScrollToEle', this.value)
     },
     handleIndex (index) {
-        this.clearCurr()
-        this.$refs[index] && (this.$refs[index][0].className += " curr")
+        this.currIndex = index
         eventBus.$emit('klCityScrollToEle', this.cityData[index].initial)
     },
     clearCurr () {
