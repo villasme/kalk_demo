@@ -13,8 +13,7 @@
 import BScroll from 'better-scroll'
 import cityData from '../../assets/js/city.js'
 import eventBus from 'src/utils/eventBus.js'
-import { loadavg } from 'os';
-import { longStackSupport } from 'q';
+
 let {log} = window.console
 export default {
   components: {
