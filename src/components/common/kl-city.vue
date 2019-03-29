@@ -41,6 +41,7 @@ export default {
       init () {
         log('初始化了')
         this.scroll = new BScroll(this.$refs.KlCity, {
+            probeType: 3,
             click: true,
         })
       }

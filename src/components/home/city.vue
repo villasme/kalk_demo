@@ -13,19 +13,20 @@
           shape="round"
           @search="onSearch"
           >
-          <div slot="action" @click="isUpCity=false">取消</div>
+          <div slot="action" @tap="isUpCity=false">取消</div>
           </van-search>
           <span></span>
         </div>
         <kl-city></kl-city>
+        <!-- 这里使用数据驱动的时候 无法触发 view Change  所以使用的 DOM操作 -->
         <div class="list-shortcut">
           <ul ref="index">
             <li v-for="(item, index) in cityData"
             class="list-index-item"
             :data-index="index"
             :key="index"
-            :class="{'curr': item.curr}"
             @click="handleIndex(index)"
+            :ref="index"
             >
             {{ item.initial }}
             </li>
@@ -51,15 +52,8 @@ export default {
       value: '',
 
       // 城市
+      cityData
     }
-  },
-  computed: {
-      cityData () {
-          return cityData.map((item) => {
-              item.curr = false
-              return item
-          })
-      }
   },
   mounted () {
       this.init()
@@ -68,7 +62,7 @@ export default {
     init () {
         eventBus.$on('onChangeIndex', (index) => {
             this.clearCurr()
-            this.cityData[index].curr = true
+            this.$refs[index][0].className += " curr"
         })
     },
     onSearch () {
@@ -76,16 +70,15 @@ export default {
     },
     handleIndex (index) {
         this.clearCurr()
+        this.$refs[index][0].className += " curr"
         eventBus.$emit('klCityScrollToEle', this.cityData[index].initial)
-        this.cityData[index].curr = true
-        log(this.cityData[index])
     },
     clearCurr () {
-        this.cityData.forEach(item => {
-            item.curr = false
+        this.cityData.forEach((item, index) => {
+            this.$refs[index][0].className = 'list-index-item'
         })
     }
-  }
+  },
 }
 </script>
 
@@ -116,6 +109,6 @@ export default {
 }
 
 .curr {
-    color: red;
+    color: skyblue;
 }
 </style>
