@@ -13,6 +13,8 @@
 import BScroll from 'better-scroll'
 import cityData from '../../assets/js/city.js'
 import eventBus from 'src/utils/eventBus.js'
+import { loadavg } from 'os';
+import { longStackSupport } from 'q';
 let {log} = window.console
 export default {
   components: {
@@ -31,7 +33,6 @@ export default {
       eventBus.$on('klCityScrollToEle', (value) => {
           this.scroll.scrollToElement(this.$refs[value])
           if (this.$refs[value]) {
-            //   log(this.$refs[value])
               let index = this.$refs[value].getAttribute('data-index')
               eventBus.$emit('onChangeIndex', index)
           }
@@ -44,6 +45,26 @@ export default {
             probeType: 3,
             click: true,
         })
+
+        this.scroll.on('scroll', this.onScroll)
+      },
+      onScroll (pos) {
+          let {y} = pos
+          let tops = this.getScrollTop()
+          tops.reduce((total, currentValue, currentIndex) => {
+              if ( currentValue < Math.abs(y)) {
+                eventBus.$emit('onChangeIndex', currentIndex)
+              }
+          }, 0)
+      },
+      getScrollTop () {
+          let scrollTops = []
+          this.cityData.forEach(item => {
+              let ele = this.$refs[item.initial]
+              let top = ele.offsetTop
+              scrollTops.push(top)
+          })
+          return scrollTops
       }
   }
 }

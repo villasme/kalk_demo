@@ -98,17 +98,23 @@ export default {
 }
 
 .list-shortcut {
+  padding: 10px;
   position: fixed;
   right: 10px;
   top: 50%;
-  transform: translateY(-50%)
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 25px;
 }
 
 .list-index-item {
+    color: $color-white;
     margin-bottom: 10px;
 }
 
 .curr {
     color: skyblue;
+    transition: transform 0.5s;
+    transform: scale(2) translateX(-24px);
 }
 </style>
